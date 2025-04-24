@@ -18,9 +18,9 @@ import FormikSignup from "./Components/FormikSignup";
 import HomePage from "./Components/HomePage";
 import Navbar from "./Components/Navbar";
 import UnknownPage from "./Components/UnknownPage";
-import CategoryPage from "./Components/CategoryPage";
-import Cart from "./Components/Cart";
-import ProductDetail from "./Components/ProductDetail";
+import CategoryPage from "./Pages/CategoryPage";
+import Cart from "./Pages/Cart";
+import ProductDetail from "./Pages/ProductDetail";
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);

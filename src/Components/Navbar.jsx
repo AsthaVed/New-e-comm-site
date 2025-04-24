@@ -110,7 +110,8 @@ function Navbar() {
                 <NavLink
                   to="/"
                   style={({ isActive }) => ({
-                    color: isActive ? "red" : "gray",
+                    color: isActive ? "red" : "black",
+                    textDecoration: isActive ? "underline" : "none",
                   })}
                   color="inherit"
                   underline="hover"
@@ -120,7 +121,8 @@ function Navbar() {
                 <NavLink
                   to="/productDetail"
                   style={({ isActive }) => ({
-                    color: isActive ? "red" : "gray",
+                    color: isActive ? "red" : "black",
+                    textDecoration: isActive ? "underline" : "none",
                   })}
                   color="inherit"
                   underline="hover"
@@ -130,7 +132,8 @@ function Navbar() {
                 <NavLink
                   to="/sale"
                   style={({ isActive }) => ({
-                    color: isActive ? "red" : "gray",
+                    color: isActive ? "red" : "black",
+                    textDecoration: isActive ? "underline" : "none",
                   })}
                   color="inherit"
                   underline="hover"
@@ -140,7 +143,8 @@ function Navbar() {
                 <NavLink
                   to="/new"
                   style={({ isActive }) => ({
-                    color: isActive ? "red" : "gray",
+                    color: isActive ? "red" : "black",
+                    textDecoration: isActive ? "underline" : "none",
                   })}
                   color="inherit"
                   underline="hover"
@@ -150,7 +154,8 @@ function Navbar() {
                 <NavLink
                   to="/categoryPage"
                   style={({ isActive }) => ({
-                    color: isActive ? "red" : "gray",
+                    color: isActive ? "red" : "black",
+                    textDecoration: isActive ? "underline" : "none",
                   })}
                   color="inherit"
                   underline="hover"

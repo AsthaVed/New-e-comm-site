@@ -77,3 +77,15 @@ button:focus-visible {
         background-color: #f9f9f9;
     }
 } */
+    
+    a {
+        text-decoration-line: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    MuiGrid-root {
+        width: 40%;
+    }
