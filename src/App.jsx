@@ -19,7 +19,7 @@ import HomePage from "./Components/HomePage";
 import Navbar from "./Components/Navbar";
 import UnknownPage from "./Components/UnknownPage";
 import CategoryPage from "./Pages/CategoryPage";
-// import Cart from "./Pages/Cart";
+import Cart from "./Pages/Cart";
 import ProductDetail from "./Pages/ProductDetail";
 // const Lazy = React.lazy(() => import("./Pages/CategoryPage"));
 // Lazy load the Category page
@@ -69,14 +69,14 @@ function App() {
               </ProtectedRoute>
             }
           />
-          {/* <Route
+          <Route
             path="/cart"
             element={
               <ProtectedRoute>
                 <Cart />
               </ProtectedRoute>
             }
-          /> */}
+          />
           <Route
             path="/categoryPage"
             element={

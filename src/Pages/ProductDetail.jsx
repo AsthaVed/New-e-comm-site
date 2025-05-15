@@ -14,6 +14,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../Redux/productSlice";
 import { Add, Remove } from '@mui/icons-material';
+import { addToCart } from "../Redux/cartSlice";
 
 function ProductDetail() {
   const { sku } = useParams();
@@ -86,7 +87,7 @@ function ProductDetail() {
                     <Add />
                   </IconButton>
                 </Box>
-            <Button variant="contained" size="large">
+            <Button variant="contained" size="large" onClick={() => dispatch(addToCart(product))}>
               Add to Cart
             </Button>
             </Box>

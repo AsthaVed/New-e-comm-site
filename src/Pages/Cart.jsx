@@ -14,35 +14,36 @@ import {
 import { Add, Remove, Delete } from '@mui/icons-material';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  removeFromCart,
   increaseQuantity,
   decreaseQuantity,
+  clearCart,
+  removeFromCart,
 } from '../Redux/cartSlice';
-import { fetchProducts } from "../Redux/productSlice";
+// import { fetchProducts } from "../Redux/productSlice";
 
 export default function Cart() {
-  // const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
-   const { items: products, loading } = useSelector((state) => state.products);
-    console.log("items", products);
-    console.log("loading", loading);
+  //  const { items: products, loading } = useSelector((state) => state.products);
+  //   console.log("items", products);
+  //   console.log("loading", loading);
   
-    useEffect(() => {
-      dispatch(fetchProducts());
-    }, [dispatch]);
+    // useEffect(() => {
+    //   dispatch(fetchProducts());
+    // }, [dispatch]);
 
-  // const total = cartItems.reduce(
-  //   (sum, item) => sum + item.price * item.quantity,
-  //   0
-  // );
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
-  // if (cartItems.length === 0) {
-  //   return (
-  //     <Box p={4} textAlign="center">
-  //       <Typography variant="h5">Your cart is empty.</Typography>
-  //     </Box>
-  //   );
-  // }
+  if (cartItems.length === 0) {
+    return (
+      <Box p={4} textAlign="center">
+        <Typography variant="h5">Your cart is empty.</Typography>
+      </Box>
+    );
+  }
 
   return (
     <Box p={{ xs: 2, md: 5 }}>
@@ -52,7 +53,7 @@ export default function Cart() {
       <Divider sx={{ mb: 3 }} />
 
       {/* <Box container spacing={3}> */}
-        {products.map((item) => (
+        {cartItems.map((item) => (
           <Box key={item.id} sx={{ mb: 3 }}>
             <Paper elevation={3} sx={{ display: 'flex', alignItems: 'center', p: 2 }}>
               <CardMedia
@@ -91,7 +92,7 @@ export default function Cart() {
 
       <Box display="flex" justifyContent="space-between" alignItems="center">
       <Typography variant="h6">Total: 1000</Typography>
-        {/* <Typography variant="h6">Total: ${total.toFixed(2)}</Typography> */}
+        <Typography variant="h6">Total: ${total.toFixed(2)}</Typography>
         <Button variant="contained" size="large">
           Checkout
         </Button>
