@@ -12,9 +12,10 @@ import {
   IconButton
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts } from "../Redux/productSlice";
+import { increaseProductQuantity, decreaseProductQuantity, fetchProducts } from "../Redux/productSlice";
 import { Add, Remove } from '@mui/icons-material';
 import { addToCart } from "../Redux/cartSlice";
+import { toast } from 'react-toastify';
 
 function ProductDetail() {
   const { sku } = useParams();
@@ -79,15 +80,15 @@ function ProductDetail() {
 
 <Box display="flex" alignItems="center">
             <Box mt={1} display="flex" alignItems="center" width="20%">
-                  <IconButton >
+                  <IconButton onClick={() => dispatch(decreaseProductQuantity(product.id))}>
                     <Remove />
                   </IconButton>
-                  <Typography px={2}>1</Typography>
-                  <IconButton >
+                  <Typography px={2}>{product.quantity}</Typography>
+                  <IconButton onClick={() => dispatch(increaseProductQuantity(product.id))}>
                     <Add />
                   </IconButton>
                 </Box>
-            <Button variant="contained" size="large" onClick={() => dispatch(addToCart(product))}>
+            <Button variant="contained" size="large" onClick={() => {dispatch(addToCart(product)); toast.success('Item added to cart!'); }}>
               Add to Cart
             </Button>
             </Box>

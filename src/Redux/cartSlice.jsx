@@ -12,7 +12,9 @@ const cartSlice = createSlice({
       if (existing) {
         existing.quantity += 1;
       } else {
-        state.cartItems.push({ ...action.payload, quantity: 1 });
+        state.cartItems.push({ ...action.payload });
+        localStorage.setItem("CartItems", JSON.stringify(action.payload));
+        console.log({ ...action.payload });
       }
     },
     removeFromCart: (state, action) => {

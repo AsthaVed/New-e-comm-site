@@ -35,14 +35,22 @@ function CategoryPage() {
 
   // // fetchData();
   // }, [dispatch]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const resultAction = await dispatch(fetchProducts());
-      setTableData(resultAction.payload);
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const resultAction = await dispatch(fetchProducts());
+  //     setTableData(resultAction.payload);
+  //   };
 
-    fetchData(); // <-- call the async function
-  }, [dispatch]);
+  //   fetchData(); // <-- call the async function
+  // }, [dispatch]);
+  useEffect(() => {
+  dispatch(fetchProducts());
+}, [dispatch]);
+
+useEffect(() => {
+  setTableData(products); // ✅ from Redux, includes quantity
+}, [products]);
+
 
   const handlePrev = () => {
     setCurrentPage((prev) => Math.max(prev - 1, 1));

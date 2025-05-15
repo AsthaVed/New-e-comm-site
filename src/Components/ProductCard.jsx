@@ -4,11 +4,16 @@ import {
   CardContent,
   Typography,
   Button,
+  Box
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import LazyImage from "./LazyImage";
+import { addToCart } from "../Redux/cartSlice";
+import { useDispatch } from "react-redux";
+import { toast } from 'react-toastify';
 
 export default function ProductCard({ product }) {
+  const dispatch = useDispatch();
   const truncateText = (text, maxLength = 30) => {
     if (text.length > maxLength) {
       return text.slice(0, maxLength) + "...";
@@ -59,14 +64,23 @@ export default function ProductCard({ product }) {
           {truncateText(product.title, 20)}
         </Typography>
         <Typography color="text.secondary">${product.price}</Typography>
-        <Button
+        <Box mt={1} sx={{display: "flex", justifyContent: "space-around"}}>
+        <Button p={6}
           component={Link}
           to={`/product/${product.sku}`}
           variant="outlined"
           size="small"
+          sx={{ width: '40%' }}
         >
           View
         </Button>
+        <Button p={6}
+          variant="contained" onClick={() => {dispatch(addToCart(product)); toast.success('Item added to cart!');}}
+          size="small"
+        >
+         Add to Cart
+        </Button>
+        </Box>
       </CardContent>
     </Card>
   );

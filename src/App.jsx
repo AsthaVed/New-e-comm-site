@@ -21,6 +21,8 @@ import UnknownPage from "./Components/UnknownPage";
 import CategoryPage from "./Pages/CategoryPage";
 import Cart from "./Pages/Cart";
 import ProductDetail from "./Pages/ProductDetail";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // const Lazy = React.lazy(() => import("./Pages/CategoryPage"));
 // Lazy load the Category page
 // const CategoryPage = lazy(() => import("./pages/CategoryPage"));
@@ -127,6 +129,7 @@ function App() {
           />
         </Routes>
       </Router>
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 }
