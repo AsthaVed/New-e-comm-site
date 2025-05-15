@@ -37,7 +37,7 @@ function Navbar() {
   return (
     <>
       {/* Top Info Bar */}
-      {loading ? (
+      {/* {loading ? (
         <>
           <Box
             sx={{
@@ -69,7 +69,7 @@ function Navbar() {
             </Link>
           </Typography>
         </Box>
-      )}
+      )} */}
 
       {/* Main Navbar */}
       <AppBar position="static" color="primary">

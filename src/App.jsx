@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,8 +19,11 @@ import HomePage from "./Components/HomePage";
 import Navbar from "./Components/Navbar";
 import UnknownPage from "./Components/UnknownPage";
 import CategoryPage from "./Pages/CategoryPage";
-import Cart from "./Pages/Cart";
+// import Cart from "./Pages/Cart";
 import ProductDetail from "./Pages/ProductDetail";
+// const Lazy = React.lazy(() => import("./Pages/CategoryPage"));
+// Lazy load the Category page
+// const CategoryPage = lazy(() => import("./pages/CategoryPage"));
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -66,24 +69,27 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
+          {/* <Route
             path="/cart"
             element={
               <ProtectedRoute>
                 <Cart />
               </ProtectedRoute>
             }
-          />
+          /> */}
           <Route
             path="/categoryPage"
             element={
               <ProtectedRoute>
                 <CategoryPage />
-              </ProtectedRoute>
+                {/* <Suspense fallback={<div>Loading...</div>}>
+                <CategoryPage />
+                </Suspense>   // this is use for full page lazyloading i want to add only for images lazyloading i have add in produtCard file */}  
+              </ProtectedRoute> 
             }
           />
           <Route
-            path="/productDetail"
+            path="/product/:sku"
             element={
               <ProtectedRoute>
                 <ProductDetail />
