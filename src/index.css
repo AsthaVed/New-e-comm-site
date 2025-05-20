@@ -89,3 +89,8 @@ button:focus-visible {
     MuiGrid-root {
         width: 40%;
     }
+    
+    span.MuiBadge-badge.MuiBadge-standard.MuiBadge-anchorOriginTopRight.MuiBadge-anchorOriginTopRightRectangular.MuiBadge-overlapRectangular.MuiBadge-colorSecondary.css-1y8627i-MuiBadge-badge {
+        top: -10px;
+        left: 3px;
+    }

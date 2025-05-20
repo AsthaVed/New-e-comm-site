@@ -10,10 +10,10 @@ import "../assets/Pagination.css";
 function CategoryPage() {
   const dispatch = useDispatch();
   const { items: products, loading } = useSelector((state) => state.products);
-  console.log("items", products);
+  // console.log("items", products);
 
   const [tableData, setTableData] = useState();
-  console.log("tableData", tableData);
+  // console.log("tableData", tableData);
   const [currentPage, setCurrentPage] = useState(1); // current page value set
   const [rowsPerPage, setRowsParPage] = useState(12); //how many records display per page
   // for extracting 10 records from all records

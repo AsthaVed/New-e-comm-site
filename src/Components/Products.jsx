@@ -8,9 +8,11 @@ import {
   Skeleton,
   Box,
   Button,
+  Link
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../Redux/productSlice";
+import { Link as RouterLink } from 'react-router-dom';
 
 function Products({ pageTitle = "Welcome" }) {
   //   const [loading, setLoading] = useState(true);
@@ -84,7 +86,7 @@ function Products({ pageTitle = "Welcome" }) {
         {loading ? (
           <Skeleton variant="rectangular" width="10%" height={40} sx={{ mx: "auto" }} />
         ) : (
-          <Button variant="outlined">View All</Button>
+          <Button variant="outlined"><Link sx={{ textDecoration: "none" }} component={RouterLink} to="/categoryPage">View All</Link></Button>
         )}
       </Box>
     </>

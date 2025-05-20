@@ -6,7 +6,7 @@ import {
   Button,
   Box
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import LazyImage from "./LazyImage";
 import { addToCart } from "../Redux/cartSlice";
 import { useDispatch } from "react-redux";
@@ -37,7 +37,7 @@ export default function ProductCard({ product }) {
       /> */}
 
       <Typography
-        component={Link}
+        component={RouterLink}
         to={`/product/${product.sku}`}
         style={{ display: "block" }}
       >
@@ -48,9 +48,9 @@ export default function ProductCard({ product }) {
           alt={product.title}
         />
       </Typography>
-      <CardContent>
+      <CardContent sx={{ display: "flex", flexDirection: "column" }}>
         <Typography
-          component={Link}
+          component={RouterLink}
           to={`/product/${product.sku}`}
           variant="h6"
           noWrap
@@ -63,10 +63,10 @@ export default function ProductCard({ product }) {
         >
           {truncateText(product.title, 20)}
         </Typography>
-        <Typography color="text.secondary">${product.price}</Typography>
+        <Typography component={RouterLink} to={`/product/${product.sku}`} color="text.secondary">${product.price}</Typography>
         <Box mt={1} sx={{display: "flex", justifyContent: "space-around"}}>
         <Button p={6}
-          component={Link}
+          component={RouterLink}
           to={`/product/${product.sku}`}
           variant="outlined"
           size="small"

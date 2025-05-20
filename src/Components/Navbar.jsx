@@ -13,6 +13,7 @@ import {
   TextField,
   InputAdornment,
   Button,
+  Badge
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -27,6 +28,10 @@ function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const auth = useSelector((state) => state.auth);
+  const cartQuantity = useSelector((state) =>
+  state.cart.cartItems.reduce((total, item) => total + item.quantity, 0)
+);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,41 +41,6 @@ function Navbar() {
 
   return (
     <>
-      {/* Top Info Bar */}
-      {/* {loading ? (
-        <>
-          <Box
-            sx={{
-              py: 1,
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <Skeleton variant="rectangular" width={220} height={30} />
-          </Box>
-        </>
-      ) : (
-        <Box sx={{ backgroundColor: "black", py: 1 }}>
-          <Typography
-            variant="body2"
-            align="center"
-            color="white"
-            sx={{ fontWeight: 500 }}
-          >
-            Sign up and get 20% off to your first order.{" "}
-            <Link
-              component={RouterLink}
-              to="/signup"
-              underline="always"
-              color="inherit"
-              sx={{ fontWeight: "bold", ml: 1 }}
-            >
-              Sign Up Now
-            </Link>
-          </Typography>
-        </Box>
-      )} */}
-
       {/* Main Navbar */}
       <AppBar position="static" color="primary">
         <Toolbar
@@ -193,6 +163,7 @@ function Navbar() {
                 </Tooltip>
                 <Tooltip title="Cart">
                   <IconButton component={RouterLink} color="inherit" to="/cart">
+                  <Badge badgeContent={cartQuantity} color="secondary"></Badge>
                     <ShoppingCartIcon />
                   </IconButton>
                 </Tooltip>
