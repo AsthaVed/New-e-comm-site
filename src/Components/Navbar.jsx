@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import SearchIcon from "@mui/icons-material/Search";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -165,6 +166,11 @@ function Navbar() {
                   <IconButton component={RouterLink} color="inherit" to="/cart">
                   <Badge badgeContent={cartQuantity} color="secondary"></Badge>
                     <ShoppingCartIcon />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Wishlist">
+                  <IconButton component={RouterLink} color="inherit" to="/wishlist">
+                    <FavoriteIcon />
                   </IconButton>
                 </Tooltip>
                 {/* {auth.isAuthenticated ? ( */}
