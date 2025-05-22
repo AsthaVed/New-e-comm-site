@@ -21,6 +21,7 @@ import {
   removeFromCart,
 } from "../Redux/cartSlice";
 import { Link as RouterLink } from "react-router-dom";
+import LazyImage from "../Components/LazyImage";
 
 // import { fetchProducts } from "../Redux/productSlice";
 
@@ -72,7 +73,7 @@ export default function Cart() {
             sx={{ display: "flex", alignItems: "center", p: 2 }}
           >
             <Link component={RouterLink} to={`/product/${item.sku}`}>
-              <CardMedia
+              {/* <CardMedia
                 component="img"
                 image={item.images[0]}
                 alt={item.title}
@@ -83,9 +84,15 @@ export default function Cart() {
                   borderRadius: 2,
                   mr: 6,
                 }}
-              />
+              /> */}
+              <LazyImage
+          height="100" // Fixed height
+          width="100"
+          src={item.images[0]}
+          alt={item.title}
+        />
             </Link>
-            <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ flexGrow: 1, ml: 5 }}>
               <Typography
                 variant="h6"
                 noWrap

@@ -25,6 +25,7 @@ const authSlice = createSlice({
       state.password = action.payload.password;
       state.isAuthenticated = true;
       localStorage.setItem("user", JSON.stringify(action.payload));
+      // console.log("User cartItemss:", localStorage.getItem("cartItems")); // Should be null
     },
     logout: (state) => {
       state.user = null;
@@ -32,6 +33,10 @@ const authSlice = createSlice({
       state.password = null;
       state.isAuthenticated = false;
       localStorage.removeItem("user");
+      // Only do this if you really want to reset cart on logout
+      // localStorage.removeItem("cartItems"); // <- maybe this is in your logout code
+      // console.log("User removed:", localStorage.getItem("user")); // Should be null
+      // console.log("User cartItems:", localStorage.getItem("cartItems")); // Should be null
     },
   },
 });

@@ -13,6 +13,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../Redux/productSlice";
 import { Link as RouterLink } from 'react-router-dom';
+import LazyImage from "./LazyImage";
 
 function Products({ pageTitle = "Welcome" }) {
   //   const [loading, setLoading] = useState(true);
@@ -56,17 +57,23 @@ function Products({ pageTitle = "Welcome" }) {
                   {loading ? (
                     <Skeleton variant="rectangular" width="100%" height={140} />
                   ) : (
-                    <Box
-                      component="img"
-                      src={product.thumbnail}
-                      alt={product.title}
-                      sx={{
-                        height: 140,
-                        objectFit: "cover",
-                        display: "flex",
-                        margin: "0 auto",
-                      }}
-                    />
+                    // <Box
+                    //   component="img"
+                    //   src={product.thumbnail}
+                    //   alt={product.title}
+                    //   sx={{
+                    //     height: 140,
+                    //     objectFit: "cover",
+                    //     display: "flex",
+                    //     margin: "0 auto",
+                    //   }}
+                    // />
+                    <LazyImage
+          // height="140"
+          height="200" // Fixed height
+          src={product.thumbnail}
+          alt={product.title}
+        />
                   )}
                   <CardContent>
                     <Typography variant="h6">

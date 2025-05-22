@@ -42,7 +42,6 @@ export default function ProductCard({ product }) {
         style={{ display: "block" }}
       >
         <LazyImage
-          // height="140"
           height="200" // Fixed height
           src={product.images[0]}
           alt={product.title}

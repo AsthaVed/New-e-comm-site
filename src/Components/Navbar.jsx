@@ -23,6 +23,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import { Link as RouterLink, NavLink } from "react-router-dom";
+import { clearCart } from "../Redux/cartSlice";
 
 function Navbar() {
   const [loading, setLoading] = useState(true);
@@ -179,6 +180,7 @@ function Navbar() {
                     color="inherit"
                     onClick={() => {
                       dispatch(logout());
+                      dispatch(clearCart());
                       navigate("/login");
                     }}
                   >
