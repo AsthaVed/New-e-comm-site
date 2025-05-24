@@ -89,7 +89,7 @@ const HomePage = () => {
                   variant="contained"
                   color="secondary"
                   sx={{ mt: 2, px: 4, py: 1 }}
-                  href="/shop"
+                  href="/categoryPage"
                 >
                   Shop Now
                 </Button>
