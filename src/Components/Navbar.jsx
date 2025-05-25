@@ -24,6 +24,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import { Link as RouterLink, NavLink } from "react-router-dom";
 import { clearCart } from "../Redux/cartSlice";
+import { clearWishlist } from "../Redux/wishlistSlice";
 
 function Navbar() {
   const [loading, setLoading] = useState(true);
@@ -33,6 +34,9 @@ function Navbar() {
   const cartQuantity = useSelector((state) =>
   state.cart.cartItems.reduce((total, item) => total + item.quantity, 0)
 );
+
+const wishlistCount = useSelector(state => state.wishlist.items.length);
+
 
   const dispatch = useDispatch();
 
@@ -171,6 +175,7 @@ function Navbar() {
                 </Tooltip>
                 <Tooltip title="Wishlist">
                   <IconButton component={RouterLink} color="inherit" to="/wishlist">
+                  <Badge badgeContent={wishlistCount} color="secondary"></Badge>
                     <FavoriteIcon />
                   </IconButton>
                 </Tooltip>
@@ -181,6 +186,7 @@ function Navbar() {
                     onClick={() => {
                       dispatch(logout());
                       dispatch(clearCart());
+                      dispatch(clearWishlist());
                       navigate("/login");
                     }}
                   >

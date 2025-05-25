@@ -20,6 +20,7 @@ import Navbar from "./Components/Navbar";
 import UnknownPage from "./Components/UnknownPage";
 import CategoryPage from "./Pages/CategoryPage";
 import Cart from "./Pages/Cart";
+import WishlistPage from "./Pages/WishlistPage";
 import ProductDetail from "./Pages/ProductDetail";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -76,6 +77,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Cart />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/wishlist"
+            element={
+              <ProtectedRoute>
+                <WishlistPage />
               </ProtectedRoute>
             }
           />

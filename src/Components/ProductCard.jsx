@@ -9,10 +9,18 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import LazyImage from "./LazyImage";
 import { addToCart } from "../Redux/cartSlice";
-import { useDispatch } from "react-redux";
+import { addToWishlist, removeFromWishlist } from "../Redux/wishlistSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import IconButton from "@mui/material/IconButton";
 
 export default function ProductCard({ product }) {
+
+  const wishlist = useSelector((state) => state.wishlist.items);
+const isInWishlist = wishlist.some((item) => item.sku === product.sku);
+
   const dispatch = useDispatch();
   const truncateText = (text, maxLength = 30) => {
     if (text.length > maxLength) {
@@ -22,6 +30,7 @@ export default function ProductCard({ product }) {
   };
 
   return (
+    <Box sx={{ position: "relative", width: "250px" }}>
     <Card key={product.sku} sx={{ width: "250px" }}>
       {/* <CardMedia
         component="img"
@@ -35,6 +44,25 @@ export default function ProductCard({ product }) {
           objectFit: "cover", // Crops image nicely to fit
         }}
       /> */}
+       <Box sx={{ position: "absolute", top: 8, right: 8, zIndex: 1 }}>
+  <IconButton
+    onClick={() => {
+      if (isInWishlist) {
+        dispatch(removeFromWishlist(product));
+        toast.info("Removed from wishlist");
+      } else {
+        dispatch(addToWishlist(product));
+        toast.success("Added to wishlist");
+      }
+    }}
+  >
+    {isInWishlist ? (
+      <FavoriteIcon color="error" />
+    ) : (
+      <FavoriteBorderIcon />
+    )}
+  </IconButton>
+</Box>
 
       <Typography
         component={RouterLink}
@@ -82,5 +110,6 @@ export default function ProductCard({ product }) {
         </Box>
       </CardContent>
     </Card>
+    </Box>
   );
 }
