@@ -89,7 +89,7 @@ function App() {
             }
           />
           <Route
-            path="/categoryPage"
+            path="/products/category"
             element={
               <ProtectedRoute>
                 <CategoryPage />

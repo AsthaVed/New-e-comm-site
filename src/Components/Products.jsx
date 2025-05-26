@@ -162,7 +162,7 @@ function Products({ pageTitle = "Welcome" }) {
             <Link
               sx={{ textDecoration: "none" }}
               component={RouterLink}
-              to="/categoryPage"
+              to="/products/category"
             >
               View All
             </Link>

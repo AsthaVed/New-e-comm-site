@@ -25,6 +25,7 @@ import HowToRegIcon from "@mui/icons-material/HowToReg";
 import { Link as RouterLink, NavLink } from "react-router-dom";
 import { clearCart } from "../Redux/cartSlice";
 import { clearWishlist } from "../Redux/wishlistSlice";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function Navbar() {
   const [loading, setLoading] = useState(true);
@@ -48,7 +49,7 @@ const wishlistCount = useSelector(state => state.wishlist.items.length);
   return (
     <>
       {/* Main Navbar */}
-      <AppBar position="static" color="primary">
+      <AppBar position="fixed" color="primary" sx={{ zIndex: 1301 }}>
         <Toolbar
           sx={{
             display: "flex",
@@ -128,7 +129,7 @@ const wishlistCount = useSelector(state => state.wishlist.items.length);
                   New Arrivals
                 </NavLink>
                 <NavLink
-                  to="/categoryPage"
+                  to="/products/category"
                   style={({ isActive }) => ({
                     color: isActive ? "red" : "black",
                     textDecoration: isActive ? "underline" : "none",
@@ -165,6 +166,11 @@ const wishlistCount = useSelector(state => state.wishlist.items.length);
                 <Tooltip title="Home">
                   <IconButton component={RouterLink} color="inherit" to="/">
                     <HomeIcon />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Account">
+                  <IconButton component={RouterLink} color="inherit" to="/account">
+                    <AccountCircleIcon />
                   </IconButton>
                 </Tooltip>
                 <Tooltip title="Cart">

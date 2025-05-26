@@ -22,7 +22,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Box sx={{ position: "relative", width: "100%", height: "400px" }}>
+    <Box sx={{ position: "relative", width: "100%", height: "400px", top: "73px" }}>
       {loading ? (
         <>
           <Skeleton
@@ -89,7 +89,7 @@ const HomePage = () => {
                   variant="contained"
                   color="secondary"
                   sx={{ mt: 2, px: 4, py: 1 }}
-                  href="/categoryPage"
+                  href="/products/category"
                 >
                   Shop Now
                 </Button>

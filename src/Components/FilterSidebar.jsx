@@ -1,30 +1,27 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  FormControlLabel,
-  Checkbox,
-} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "../Redux/categorySlice"; // import the thunk
+import { useSearchParams } from "react-router-dom";
 
 export default function FilterSidebar() {
-  const categories = ["Electronics", "Clothing", "Books", "Home"];
+  const dispatch = useDispatch();
+  const { items: categories, loading } = useSelector((state) => state.categories);
   const [selectedCategories, setSelectedCategories] = useState([]);
+        console.log("categoryyyyy", selectedCategories);
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
 
   const handleCategoryChange = (event) => {
     const { value, checked } = event.target;
-    if (checked) {
-      setSelectedCategories((prev) => [...prev, value]);
-    } else {
-      setSelectedCategories((prev) =>
-        prev.filter((category) => category !== value)
-      );
-    }
-
-    // Optional: Call props.onFilterChange(selectedCategories) here
+    setSelectedCategories((prev) =>
+      checked ? [...prev, value] : prev.filter((cat) => cat !== value)
+    );
   };
 
   return (
-    <Box>
+    <Box sx={{ maxHeight: 400, overflowY: "auto", pr: 1 }}>
       <Typography variant="h6" gutterBottom>
         Filters
       </Typography>
@@ -32,27 +29,22 @@ export default function FilterSidebar() {
         Categories
       </Typography>
 
-      {categories.map((category) => (
-        <Box key={category} width="100%"> 
+      {categories.map((category, index) => (
+        <Box key={ index } width="100%">
           <FormControlLabel
-          control={
-            <Checkbox
-              value={category}
-              checked={selectedCategories.includes(category)}
-              onChange={handleCategoryChange}
-            />
-          }
-          label={category}
-        />
+            control={
+              <Checkbox
+                value={category.name}
+                checked={selectedCategories.includes(category.name)}
+                onChange={handleCategoryChange}
+                inputProps={{ "data-category": category.name }}
+              />
+            }
+            label={category.name.replace("-", " ")}
+
+          />
         </Box>
       ))}
     </Box>
   );
 }
-
-
-
-      // <FormControlLabel control={<Checkbox />} label="In Stock" />
-      // <FormControlLabel control={<Checkbox />} label="On Sale" />
-
-
