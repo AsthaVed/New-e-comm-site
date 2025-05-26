@@ -21,6 +21,17 @@ export default function ProductCard({ product }) {
   const wishlist = useSelector((state) => state.wishlist.items);
 const isInWishlist = wishlist.some((item) => item.sku === product.sku);
 
+const handleWishlistToggle = () => {
+  if (isInWishlist) {
+    dispatch(removeFromWishlist(product));
+    toast.info("Removed from wishlist");
+  } else {
+    dispatch(addToWishlist(product));
+    toast.success("Added to wishlist");
+  }
+};
+
+
   const dispatch = useDispatch();
   const truncateText = (text, maxLength = 30) => {
     if (text.length > maxLength) {
@@ -46,15 +57,7 @@ const isInWishlist = wishlist.some((item) => item.sku === product.sku);
       /> */}
        <Box sx={{ position: "absolute", top: 8, right: 8, zIndex: 1 }}>
   <IconButton
-    onClick={() => {
-      if (isInWishlist) {
-        dispatch(removeFromWishlist(product));
-        toast.info("Removed from wishlist");
-      } else {
-        dispatch(addToWishlist(product));
-        toast.success("Added to wishlist");
-      }
-    }}
+    onClick={handleWishlistToggle}
   >
     {isInWishlist ? (
       <FavoriteIcon color="error" />
@@ -72,15 +75,17 @@ const isInWishlist = wishlist.some((item) => item.sku === product.sku);
         <LazyImage
           height="200" // Fixed height
           src={product.images[0]}
-          alt={product.title}
+           alt={`Image of ${product.title}`}
         />
       </Typography>
       <CardContent sx={{ display: "flex", flexDirection: "column" }}>
+        {/* Add title attribute on links to show full name on hover */}
         <Typography
           component={RouterLink}
           to={`/product/${product.sku}`}
           variant="h6"
           noWrap
+          title={product.title}
           sx={{
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -92,16 +97,16 @@ const isInWishlist = wishlist.some((item) => item.sku === product.sku);
         </Typography>
         <Typography component={RouterLink} to={`/product/${product.sku}`} color="text.secondary">${product.price}</Typography>
         <Box mt={1} sx={{display: "flex", justifyContent: "space-around"}}>
-        <Button p={6}
+        <Button
           component={RouterLink}
           to={`/product/${product.sku}`}
           variant="outlined"
           size="small"
-          sx={{ width: '40%' }}
+          sx={{ width: '40%', p: 1 }}
         >
           View
         </Button>
-        <Button p={6}
+        <Button sx={{ p: 1 }}
           variant="contained" onClick={() => {dispatch(addToCart(product)); toast.success('Item added to cart!');}}
           size="small"
         >

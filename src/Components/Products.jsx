@@ -86,10 +86,10 @@ function Products({ pageTitle = "Welcome" }) {
                     </Typography> */}
                     {!loading && product ? (
   <>
-    <Typography variant="h6" component={RouterLink} to={`/product/${product.sku}`} sx={{ display: "block", color: "#000"}}>
+    <Typography variant="h6" title={product.title} component={RouterLink} to={`/product/${product.sku}`} sx={{ display: "block", color: "#000"}}>
       {product.title}
     </Typography>
-    <Typography variant="body2" color="textSecondary" component={RouterLink} to={`/product/${product.sku}` } sx={{
+    <Typography variant="body2" title={product.description} color="textSecondary" component={RouterLink} to={`/product/${product.sku}` } sx={{
     minHeight: "3rem", // adjust based on font size for alignment
     display: "block",
     textDecoration: "none",

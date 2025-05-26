@@ -7,17 +7,39 @@ import { useSearchParams } from "react-router-dom";
 export default function FilterSidebar() {
   const dispatch = useDispatch();
   const { items: categories, loading } = useSelector((state) => state.categories);
+
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedCategories, setSelectedCategories] = useState([]);
         console.log("categoryyyyy", selectedCategories);
+
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
+  // Sync selected categories with URL params
+  useEffect(() => {
+    const urlCategories = searchParams.getAll("category");
+    setSelectedCategories(urlCategories);
+  }, [searchParams]);
+
+   // Handle checkbox change and update URL
   const handleCategoryChange = (event) => {
     const { value, checked } = event.target;
-    setSelectedCategories((prev) =>
-      checked ? [...prev, value] : prev.filter((cat) => cat !== value)
-    );
+    let updated = [];
+
+    if (checked) {
+      updated = [...selectedCategories, value];
+    } else {
+      updated = selectedCategories.filter((cat) => cat !== value);
+    }
+
+    setSelectedCategories(updated);
+
+    // Update URL search params
+    const newParams = new URLSearchParams();
+    // console.log("newParams", newParams);
+    updated.forEach((cat) => newParams.append("category", cat));
+    setSearchParams(newParams);
   };
 
   return (
@@ -28,23 +50,25 @@ export default function FilterSidebar() {
       <Typography variant="subtitle1" gutterBottom>
         Categories
       </Typography>
-
-      {categories.map((category, index) => (
-        <Box key={ index } width="100%">
-          <FormControlLabel
-            control={
-              <Checkbox
-                value={category.name}
-                checked={selectedCategories.includes(category.name)}
-                onChange={handleCategoryChange}
-                inputProps={{ "data-category": category.name }}
-              />
-            }
-            label={category.name.replace("-", " ")}
-
-          />
-        </Box>
-      ))}
+      
+       {categories.map((category, index) => {
+        const catName = typeof category === "string" ? category : category.name;
+        return (
+          <Box key={catName || index} width="100%">
+            <FormControlLabel
+              control={
+                <Checkbox
+                  value={catName}
+                  checked={selectedCategories.includes(catName)}
+                  onChange={handleCategoryChange}
+                  inputProps={{ "data-category": catName }}
+                />
+              }
+              label={catName.replace("-", " ")}
+            />
+          </Box>
+        );
+      })}
     </Box>
   );
 }
