@@ -16,6 +16,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import IconButton from "@mui/material/IconButton";
 
+
 export default function ProductCard({ product }) {
 
   const wishlist = useSelector((state) => state.wishlist.items);

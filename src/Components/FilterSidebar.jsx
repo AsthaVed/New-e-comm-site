@@ -7,6 +7,7 @@ import { useSearchParams } from "react-router-dom";
 export default function FilterSidebar() {
   const dispatch = useDispatch();
   const { items: categories, loading } = useSelector((state) => state.categories);
+  console.log("categoriessss", categories);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -24,13 +25,15 @@ export default function FilterSidebar() {
 
    // Handle checkbox change and update URL
   const handleCategoryChange = (event) => {
-    const { value, checked } = event.target;
+    // const { value, checked } = event.target;
+    const checked = event.target.checked;
+    const category = event.target.getAttribute("data-category");
     let updated = [];
 
     if (checked) {
-      updated = [...selectedCategories, value];
+      updated = [...selectedCategories, category];
     } else {
-      updated = selectedCategories.filter((cat) => cat !== value);
+      updated = selectedCategories.filter((cat) => cat !== category);
     }
 
     setSelectedCategories(updated);
@@ -52,7 +55,7 @@ export default function FilterSidebar() {
       </Typography>
       
        {categories.map((category, index) => {
-        const catName = typeof category === "string" ? category : category.name;
+        const catName = typeof category === "string" ? category : category.slug;
         return (
           <Box key={catName || index} width="100%">
             <FormControlLabel

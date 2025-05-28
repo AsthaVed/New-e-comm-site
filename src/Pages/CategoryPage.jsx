@@ -6,22 +6,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../Redux/productSlice";
 import CircularProgress from "@mui/material/CircularProgress";
 import "../assets/Pagination.css";
+import { useSearchParams } from "react-router-dom";
 
 function CategoryPage() {
   const dispatch = useDispatch();
   const { items: products, loading } = useSelector((state) => state.products);
   // console.log("items", products);
 
+    const [searchParams] = useSearchParams();
+    const urlSelectedCategories = searchParams.getAll("category");
+    console.log("urlSelectedCategories", urlSelectedCategories);
+  
+    const filteredProducts = urlSelectedCategories.length
+      ? products.filter((p) => {
+      console.log("Checking product:", p); // 👈 log each product
+      return urlSelectedCategories.map((cat) => cat.toLowerCase()).includes(p.category?.toLowerCase());
+    })
+      : products;
+      console.log("filteredProducts", filteredProducts);
+
   const [tableData, setTableData] = useState();
   // console.log("tableData", tableData);
   const [currentPage, setCurrentPage] = useState(1); // current page value set
-  const [rowsPerPage, setRowsParPage] = useState(12); //how many records display per page
+  const rowsPerPage = 12;
   // for extracting 10 records from all records
   const indexOfLastItem = currentPage * rowsPerPage;
   const indexOfFirstItem = indexOfLastItem - rowsPerPage;
-  const currentItems = tableData?.slice(indexOfFirstItem, indexOfLastItem); //get 10 items
+  const currentItems = filteredProducts?.slice(indexOfFirstItem, indexOfLastItem); //get 10 items
   console.log("currentIems", currentItems);
-  const totalPages = Math.ceil(tableData?.length / rowsPerPage);
+  const totalPages = Math.ceil(filteredProducts?.length / rowsPerPage);
 
   // The useEffect callback function cannot be async. Instead, use an inner async function inside useEffect.
 
@@ -66,6 +79,7 @@ useEffect(() => {
   return (
     <Box p={2} sx={{ position: "relative", top: "73px" }}>
       {/* Layout: Sidebar and Products side by side */}
+      
       <Box display="flex" gap={2}>
         {/* Sidebar */}
         <Box flex="1" maxWidth="250px">
