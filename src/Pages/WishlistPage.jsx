@@ -13,7 +13,7 @@ function WishlistPage() {
   const dispatch = useDispatch();
 
   return (
-    <Box p={{ xs: 2, md: 5 }} sx={{ position: "relative", top: "60px" }}>
+    <Box p={{ xs: 2, md: 5 }} sx={{ position: "relative", padding: "10px 40px 40px 40px !important" }}>
       <Typography variant="h4" gutterBottom>
         Your Wishlist
       </Typography>

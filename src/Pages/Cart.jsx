@@ -43,7 +43,7 @@ export default function Cart() {
 
   if (cartItems.length === 0) {
     return (
-      <Box p={4} textAlign="center" sx={{ position: "relative", top: "73px" }}>
+      <Box p={4} textAlign="center" sx={{ position: "relative" }}>
         <Typography variant="h5">Your cart is empty.</Typography>
         <Button
           variant="contained"

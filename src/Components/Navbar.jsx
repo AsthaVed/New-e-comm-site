@@ -49,7 +49,7 @@ const wishlistCount = useSelector(state => state.wishlist.items.length);
   return (
     <>
       {/* Main Navbar */}
-      <AppBar position="fixed" color="primary" sx={{ zIndex: 1301 }}>
+      <AppBar position="sticky" color="primary" sx={{ zIndex: 1301 }}>
         <Toolbar
           sx={{
             display: "flex",

@@ -77,7 +77,7 @@ useEffect(() => {
     setCurrentPage(pageNumber);
   };
   return (
-    <Box p={2} sx={{ position: "relative", top: "73px" }}>
+    <Box p={2} sx={{ position: "relative", top: "15px" }}>
       {/* Layout: Sidebar and Products side by side */}
       
       <Box display="flex" gap={2}>

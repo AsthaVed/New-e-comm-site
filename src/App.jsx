@@ -24,6 +24,7 @@ import WishlistPage from "./Pages/WishlistPage";
 import ProductDetail from "./Pages/ProductDetail";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AccountPage from "./Pages/AccountPage";
 // const Lazy = React.lazy(() => import("./Pages/CategoryPage"));
 // Lazy load the Category page
 // const CategoryPage = lazy(() => import("./pages/CategoryPage"));
@@ -104,6 +105,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <ProductDetail />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/account"
+            element={
+              <ProtectedRoute>
+                <AccountPage />
               </ProtectedRoute>
             }
           />

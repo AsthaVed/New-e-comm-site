@@ -45,7 +45,7 @@ function ProductDetail() {
     );
 
   return (
-    <Box p={{ xs: 2, md: 5 }} sx={{ position: "relative", top: "73px" }}>
+    <Box p={{ xs: 2, md: 5 }} sx={{ position: "relative" }}>
       <Paper elevation={3} sx={{ borderRadius: 4, p: { xs: 2, md: 4 } }}>
         <Box
           sx={{

@@ -22,7 +22,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Box sx={{ position: "relative", width: "100%", height: "400px", top: "73px" }}>
+    <Box sx={{ position: "relative", width: "100%", height: "400px", top: "5px" }}>
       {loading ? (
         <>
           <Skeleton
