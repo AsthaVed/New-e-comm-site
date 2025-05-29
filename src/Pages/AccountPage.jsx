@@ -17,10 +17,12 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import LogoutIcon from "@mui/icons-material/Logout";
 import WishlistPage from "./WishlistPage";
+import Profile from "../Components/Profile";
+import AddressPage from "../Components/AddressPage";
 
 // Dummy components for each tab (you can replace with real ones)
-const Profile = () => <Typography>Profile Information</Typography>;
-const Address = () => <Typography>Address Book</Typography>;
+// const Profile = () => <Typography>Profile Information</Typography>;
+// const Address = () => <Typography>Address Book</Typography>;
 const Orders = () => <Typography>Your Orders</Typography>;
 // const Wishlist = () => <Typography>Your Wishlist</Typography>;
 
@@ -36,17 +38,17 @@ export default function AccountPage() {
 
   const navItems = [
     { label: "Profile", value: "Profile", icon: <PersonIcon /> },
-    { label: "Address", value: "Address", icon: <LocationOnIcon /> },
-    { label: "Wishlist", value: "Wishlist", icon: <FavoriteIcon /> },
     { label: "Orders", value: "Orders", icon: <ShoppingBagIcon /> },
+    { label: "Addresses", value: "Addresses", icon: <LocationOnIcon /> },
+    { label: "Wishlist", value: "Wishlist", icon: <FavoriteIcon /> },
   ];
 
   const renderTabContent = () => {
     switch (selectedTab) {
       case "Profile":
         return <Profile />;
-      case "Address":
-        return <Address />;
+      case "Addresses":
+        return <AddressPage />;
       case "Wishlist":
         return <WishlistPage />;
       case "Orders":

@@ -77,6 +77,9 @@ const wishlistCount = useSelector(state => state.wishlist.items.length);
               <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                 <Skeleton variant="circular" width={32} height={32} />
                 <Skeleton variant="circular" width={32} height={32} />
+                <Skeleton variant="circular" width={32} height={32} />
+                <Skeleton variant="circular" width={32} height={32} />
+                <Skeleton variant="circular" width={32} height={32} />
               </Box>
             </>
           ) : (

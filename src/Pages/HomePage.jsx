@@ -9,9 +9,9 @@ import {
   Box,
   Button,
 } from "@mui/material";
-import Products from "./Products";
-import ReviewCard from "./ReviewCard";
-import Footer from "./Footer";
+import Products from "../Components/Products";
+import ReviewCard from "../Components/ReviewCard";
+import Footer from "../Components/Footer";
 
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
