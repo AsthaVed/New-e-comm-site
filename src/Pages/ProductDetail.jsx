@@ -73,7 +73,7 @@ function ProductDetail() {
               sx={{
                 width: "100%",
                 height: { xs: 300, md: 450 },
-                objectFit: "cover",
+                objectFit: "contain",
                 borderRadius: 2,
               }}
             />
