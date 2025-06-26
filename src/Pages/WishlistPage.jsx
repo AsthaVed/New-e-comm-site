@@ -19,6 +19,14 @@ function WishlistPage() {
       </Typography>
       <Divider sx={{ mb: 3 }} />
 
+           <Box
+        sx={{
+          maxHeight: "70vh", // adjust as needed (e.g., 70vh or 500px)
+          overflowY: "auto",
+          pr: 1, // padding to avoid scrollbar overlap
+          mb: 4,
+        }}
+      >
       {wishlist.map((item) => (
         <Box key={item.id} sx={{ mb: 3 }}>
           <Paper
@@ -59,6 +67,7 @@ function WishlistPage() {
           </Paper>
         </Box>
       ))}
+      </Box>
 
       {wishlist.length === 0 && (
         <Typography color="text.secondary">Your wishlist is empty.</Typography>

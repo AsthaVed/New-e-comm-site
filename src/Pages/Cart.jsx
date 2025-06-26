@@ -59,21 +59,29 @@ export default function Cart() {
   }
 
   return (
-    <Box p={{ xs: 2, md: 5 }} sx={{ position: "relative", top: "60px" }}>
+    <Box p={{ xs: 2, md: 5 }} sx={{ position: "relative" }}>
       <Typography variant="h4" gutterBottom>
         Your Cart
       </Typography>
       <Divider sx={{ mb: 3 }} />
 
       {/* <Box container spacing={3}> */}
-      {cartItems.map((item) => (
-        <Box key={item.id} sx={{ mb: 3 }}>
-          <Paper
-            elevation={3}
-            sx={{ display: "flex", alignItems: "center", p: 2 }}
-          >
-            <Link component={RouterLink} to={`/product/${item.sku}`}>
-              {/* <CardMedia
+      <Box
+        sx={{
+          maxHeight: "60vh", // adjust as needed (e.g., 70vh or 500px)
+          overflowY: "auto",
+          pr: 1, // padding to avoid scrollbar overlap
+          mb: 4,
+        }}
+      >
+        {cartItems.map((item) => (
+          <Box key={item.id} sx={{ mb: 3 }}>
+            <Paper
+              elevation={3}
+              sx={{ display: "flex", alignItems: "center", p: 2 }}
+            >
+              <Link component={RouterLink} to={`/product/${item.sku}`}>
+                {/* <CardMedia
                 component="img"
                 image={item.images[0]}
                 alt={item.title}
@@ -85,46 +93,47 @@ export default function Cart() {
                   mr: 6,
                 }}
               /> */}
-              <LazyImage
-          height="100" // Fixed height
-          width="100"
-          src={item.images[0]}
-          alt={item.title}
-        />
-            </Link>
-            <Box sx={{ flexGrow: 1, ml: 5 }}>
-              <Typography
-                variant="h6"
-                noWrap
-                component={RouterLink}
-                to={`/product/${item.sku}`}
-                sx={{
-                  color: "text.primary",
-                  textDecoration: "none",
-                  "&:hover": { textDecoration: "underline" },
-                }}
-              >
-                {item.title}
-              </Typography>
-              <Typography color="text.secondary">${item.price}</Typography>
-            </Box>
-            <Box mt={1} display="flex" alignItems="center" width="20%">
-              <IconButton onClick={() => dispatch(decreaseQuantity(item.id))}>
-                <Remove />
-              </IconButton>
-              <Typography px={2}>{item.quantity}</Typography>
-              <IconButton onClick={() => dispatch(increaseQuantity(item.id))}>
-                <Add />
-              </IconButton>
-            </Box>
-            <Box mt={1} display="flex" alignItems="center" width="5%">
-              <IconButton onClick={() => dispatch(removeFromCart(item.id))}>
-                <Delete />
-              </IconButton>
-            </Box>
-          </Paper>
-        </Box>
-      ))}
+                <LazyImage
+                  height="100" // Fixed height
+                  width="100"
+                  src={item.images[0]}
+                  alt={item.title}
+                />
+              </Link>
+              <Box sx={{ flexGrow: 1, ml: 5 }}>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component={RouterLink}
+                  to={`/product/${item.sku}`}
+                  sx={{
+                    color: "text.primary",
+                    textDecoration: "none",
+                    "&:hover": { textDecoration: "underline" },
+                  }}
+                >
+                  {item.title}
+                </Typography>
+                <Typography color="text.secondary">${item.price}</Typography>
+              </Box>
+              <Box mt={1} display="flex" alignItems="center" width="20%">
+                <IconButton onClick={() => dispatch(decreaseQuantity(item.id))}>
+                  <Remove />
+                </IconButton>
+                <Typography px={2}>{item.quantity}</Typography>
+                <IconButton onClick={() => dispatch(increaseQuantity(item.id))}>
+                  <Add />
+                </IconButton>
+              </Box>
+              <Box mt={1} display="flex" alignItems="center" width="5%">
+                <IconButton onClick={() => dispatch(removeFromCart(item.id))}>
+                  <Delete />
+                </IconButton>
+              </Box>
+            </Paper>
+          </Box>
+        ))}
+      </Box>
       {/* </Box> */}
 
       <Divider sx={{ my: 4 }} />
