@@ -77,3 +77,29 @@ button:focus-visible {
         background-color: #f9f9f9;
     }
 } */
+    
+    a {
+        text-decoration-line: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    MuiGrid-root {
+        width: 40%;
+    }
+    
+    span.MuiBadge-badge.MuiBadge-standard.MuiBadge-anchorOriginTopRight.MuiBadge-anchorOriginTopRightRectangular.MuiBadge-overlapRectangular.MuiBadge-colorSecondary.css-1y8627i-MuiBadge-badge {
+        top: -10px;
+        left: 3px;
+    }
+    
+    .active-tab {
+        background-color: #e0f7fa;
+        font-weight: bold;
+    }
+    
+    .inactive-tab:hover {
+        background-color: #f0f0f0;
+    }

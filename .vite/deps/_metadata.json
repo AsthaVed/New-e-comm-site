@@ -1,0 +1,247 @@
+{
+  "hash": "25aa426e",
+  "configHash": "c40fdcdb",
+  "lockfileHash": "01b21446",
+  "browserHash": "daca1858",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "cc499164",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "9fe70189",
+      "needsInterop": true
+    },
+    "react-redux": {
+      "src": "../../node_modules/react-redux/dist/react-redux.mjs",
+      "file": "react-redux.js",
+      "fileHash": "871f2d8b",
+      "needsInterop": false
+    },
+    "@reduxjs/toolkit": {
+      "src": "../../node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs",
+      "file": "@reduxjs_toolkit.js",
+      "fileHash": "6940d9c4",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "80322a20",
+      "needsInterop": false
+    },
+    "@mui/material": {
+      "src": "../../node_modules/@mui/material/esm/index.js",
+      "file": "@mui_material.js",
+      "fileHash": "6ae9ef66",
+      "needsInterop": false
+    },
+    "@mui/icons-material": {
+      "src": "../../node_modules/@mui/icons-material/esm/index.js",
+      "file": "@mui_icons-material.js",
+      "fileHash": "933f0e5f",
+      "needsInterop": false
+    },
+    "formik": {
+      "src": "../../node_modules/formik/dist/formik.esm.js",
+      "file": "formik.js",
+      "fileHash": "cdcf0ac7",
+      "needsInterop": false
+    },
+    "yup": {
+      "src": "../../node_modules/yup/index.esm.js",
+      "file": "yup.js",
+      "fileHash": "cd5f0411",
+      "needsInterop": false
+    },
+    "@mui/material/Link": {
+      "src": "../../node_modules/@mui/material/esm/Link/index.js",
+      "file": "@mui_material_Link.js",
+      "fileHash": "49a71c56",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Home": {
+      "src": "../../node_modules/@mui/icons-material/esm/Home.js",
+      "file": "@mui_icons-material_Home.js",
+      "fileHash": "32fe25e8",
+      "needsInterop": false
+    },
+    "@mui/icons-material/ShoppingCart": {
+      "src": "../../node_modules/@mui/icons-material/esm/ShoppingCart.js",
+      "file": "@mui_icons-material_ShoppingCart.js",
+      "fileHash": "67fe533c",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Search": {
+      "src": "../../node_modules/@mui/icons-material/esm/Search.js",
+      "file": "@mui_icons-material_Search.js",
+      "fileHash": "6feb5f2b",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Login": {
+      "src": "../../node_modules/@mui/icons-material/esm/Login.js",
+      "file": "@mui_icons-material_Login.js",
+      "fileHash": "ea122f54",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Logout": {
+      "src": "../../node_modules/@mui/icons-material/esm/Logout.js",
+      "file": "@mui_icons-material_Logout.js",
+      "fileHash": "a9895f68",
+      "needsInterop": false
+    },
+    "@mui/icons-material/HowToReg": {
+      "src": "../../node_modules/@mui/icons-material/esm/HowToReg.js",
+      "file": "@mui_icons-material_HowToReg.js",
+      "fileHash": "c5f0eefa",
+      "needsInterop": false
+    },
+    "@mui/icons-material/StarPurple500": {
+      "src": "../../node_modules/@mui/icons-material/esm/StarPurple500.js",
+      "file": "@mui_icons-material_StarPurple500.js",
+      "fileHash": "ea0d7f59",
+      "needsInterop": false
+    },
+    "@mui/icons-material/CheckCircleRounded": {
+      "src": "../../node_modules/@mui/icons-material/esm/CheckCircleRounded.js",
+      "file": "@mui_icons-material_CheckCircleRounded.js",
+      "fileHash": "582ddd92",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Instagram": {
+      "src": "../../node_modules/@mui/icons-material/esm/Instagram.js",
+      "file": "@mui_icons-material_Instagram.js",
+      "fileHash": "4d2709e5",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Facebook": {
+      "src": "../../node_modules/@mui/icons-material/esm/Facebook.js",
+      "file": "@mui_icons-material_Facebook.js",
+      "fileHash": "cb8df093",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Twitter": {
+      "src": "../../node_modules/@mui/icons-material/esm/Twitter.js",
+      "file": "@mui_icons-material_Twitter.js",
+      "fileHash": "7da6ce6d",
+      "needsInterop": false
+    },
+    "@mui/icons-material/LinkedIn": {
+      "src": "../../node_modules/@mui/icons-material/esm/LinkedIn.js",
+      "file": "@mui_icons-material_LinkedIn.js",
+      "fileHash": "2343c458",
+      "needsInterop": false
+    },
+    "@mui/icons-material/CurrencyRupeeOutlined": {
+      "src": "../../node_modules/@mui/icons-material/esm/CurrencyRupeeOutlined.js",
+      "file": "@mui_icons-material_CurrencyRupeeOutlined.js",
+      "fileHash": "26d1d880",
+      "needsInterop": false
+    },
+    "@mui/icons-material/CreditScoreOutlined": {
+      "src": "../../node_modules/@mui/icons-material/esm/CreditScoreOutlined.js",
+      "file": "@mui_icons-material_CreditScoreOutlined.js",
+      "fileHash": "8916ea24",
+      "needsInterop": false
+    },
+    "@mui/icons-material/CurrencyBitcoinOutlined": {
+      "src": "../../node_modules/@mui/icons-material/esm/CurrencyBitcoinOutlined.js",
+      "file": "@mui_icons-material_CurrencyBitcoinOutlined.js",
+      "fileHash": "f281c17e",
+      "needsInterop": false
+    },
+    "@mui/icons-material/EuroOutlined": {
+      "src": "../../node_modules/@mui/icons-material/esm/EuroOutlined.js",
+      "file": "@mui_icons-material_EuroOutlined.js",
+      "fileHash": "2161860d",
+      "needsInterop": false
+    },
+    "@mui/icons-material/MailOutlined": {
+      "src": "../../node_modules/@mui/icons-material/esm/MailOutlined.js",
+      "file": "@mui_icons-material_MailOutlined.js",
+      "fileHash": "80876884",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-VGW6RSHC": {
+      "file": "chunk-VGW6RSHC.js"
+    },
+    "chunk-OAZAAUMI": {
+      "file": "chunk-OAZAAUMI.js"
+    },
+    "chunk-5JLWIKMY": {
+      "file": "chunk-5JLWIKMY.js"
+    },
+    "chunk-LILTZNEV": {
+      "file": "chunk-LILTZNEV.js"
+    },
+    "chunk-QOE273TK": {
+      "file": "chunk-QOE273TK.js"
+    },
+    "chunk-WLIG6BY6": {
+      "file": "chunk-WLIG6BY6.js"
+    },
+    "chunk-BD4QV4JT": {
+      "file": "chunk-BD4QV4JT.js"
+    },
+    "chunk-W77TIVPM": {
+      "file": "chunk-W77TIVPM.js"
+    },
+    "chunk-BNHDBEHH": {
+      "file": "chunk-BNHDBEHH.js"
+    },
+    "chunk-OCSQ6MUW": {
+      "file": "chunk-OCSQ6MUW.js"
+    },
+    "chunk-ZVK5QUG4": {
+      "file": "chunk-ZVK5QUG4.js"
+    },
+    "chunk-UBCUJH2L": {
+      "file": "chunk-UBCUJH2L.js"
+    },
+    "chunk-JN2W3JAO": {
+      "file": "chunk-JN2W3JAO.js"
+    },
+    "chunk-4NTKFVGC": {
+      "file": "chunk-4NTKFVGC.js"
+    },
+    "chunk-SZRMORK7": {
+      "file": "chunk-SZRMORK7.js"
+    },
+    "chunk-NKYY3WYH": {
+      "file": "chunk-NKYY3WYH.js"
+    },
+    "chunk-XYCUY5EK": {
+      "file": "chunk-XYCUY5EK.js"
+    },
+    "chunk-YNR4ZSYQ": {
+      "file": "chunk-YNR4ZSYQ.js"
+    },
+    "chunk-TB77XKGN": {
+      "file": "chunk-TB77XKGN.js"
+    },
+    "chunk-C6WWHQR7": {
+      "file": "chunk-C6WWHQR7.js"
+    },
+    "chunk-Q43KUFL2": {
+      "file": "chunk-Q43KUFL2.js"
+    },
+    "chunk-BIOOSSSY": {
+      "file": "chunk-BIOOSSSY.js"
+    },
+    "chunk-24WCEZKM": {
+      "file": "chunk-24WCEZKM.js"
+    },
+    "chunk-6GAV2S6I": {
+      "file": "chunk-6GAV2S6I.js"
+    },
+    "chunk-DC5AMYBS": {
+      "file": "chunk-DC5AMYBS.js"
+    }
+  }
+}

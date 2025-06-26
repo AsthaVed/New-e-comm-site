@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,12 +15,19 @@ import ReduxLogin from "./Components/ReduxLogin";
 import ReduxSignup from "./Components/ReduxSignup";
 import FormikLogin from "./Components/FormikLogin";
 import FormikSignup from "./Components/FormikSignup";
-import HomePage from "./Components/HomePage";
+import HomePage from "./Pages/HomePage";
 import Navbar from "./Components/Navbar";
-import UnknownPage from "./Components/UnknownPage";
-import CategoryPage from "./Components/CategoryPage";
-import Cart from "./Components/Cart";
-import ProductDetail from "./Components/ProductDetail";
+import UnknownPage from "./Pages/UnknownPage";
+import CategoryPage from "./Pages/CategoryPage";
+import Cart from "./Pages/Cart";
+import WishlistPage from "./Pages/WishlistPage";
+import ProductDetail from "./Pages/ProductDetail";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import AccountPage from "./Pages/AccountPage";
+// const Lazy = React.lazy(() => import("./Pages/CategoryPage"));
+// Lazy load the Category page
+// const CategoryPage = lazy(() => import("./pages/CategoryPage"));
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -75,18 +82,37 @@ function App() {
             }
           />
           <Route
-            path="/categoryPage"
+            path="/wishlist"
             element={
               <ProtectedRoute>
-                <CategoryPage />
+                <WishlistPage />
               </ProtectedRoute>
             }
           />
           <Route
-            path="/productDetail"
+            path="/products/category"
+            element={
+              <ProtectedRoute>
+                <CategoryPage />
+                {/* <Suspense fallback={<div>Loading...</div>}>
+                <CategoryPage />
+                </Suspense>   // this is use for full page lazyloading i want to add only for images lazyloading i have add in produtCard file */}  
+              </ProtectedRoute> 
+            }
+          />
+          <Route
+            path="/product/:sku"
             element={
               <ProtectedRoute>
                 <ProductDetail />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/account"
+            element={
+              <ProtectedRoute>
+                <AccountPage />
               </ProtectedRoute>
             }
           />
@@ -121,6 +147,7 @@ function App() {
           />
         </Routes>
       </Router>
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 }
