@@ -18,6 +18,8 @@ import {
 } from "../Redux/cartSlice";
 import { Link as RouterLink } from "react-router-dom";
 import LazyImage from "../Components/LazyImage";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 
 export default function Cart() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -27,6 +29,45 @@ export default function Cart() {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  // const API_URL = `${window.location.protocol}//${window.location.hostname}:4242`;
+
+  //front-end stripe setup
+  const makePayment = async () => {
+    const stripe = await loadStripe(
+      "pk_test_51S1grRLCERXVRwuA7cnBgouG8lnDu3Va8xtwPcTCpuvK24yzQenQjPmG9qvbJAFDJiCEryPA9le8voVyCBRZJayS00QPGB1ruD", { locale: "en" }
+    );
+
+    const body = {
+      all_products: cartItems,
+    };
+
+    const headers = {
+      "Content-Type": "application/json",
+    };
+
+    // const response = await fetch(`http://localhost:5000/create-checkout-session`, {
+    //   method: "POST",
+    //   headers: headers,
+    //   body: JSON.stringify(body)
+    // })
+    const response = await axios.post(
+      "http://localhost:8000/create-checkout-session",
+      body, // axios automatically converts JS object to JSON
+      { headers } // pass headers separately
+    );
+
+    const session = await response.data;
+   alert("session: " + JSON.stringify(session));
+
+    const result = stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+
+    if (result.error) {
+      console.log(result.error);
+    }
+  };
 
   if (cartItems.length === 0) {
     return (
@@ -92,7 +133,9 @@ export default function Cart() {
                     >
                       {item.title}
                     </Typography>
-                    <Typography color="text.secondary">${item.price}</Typography>
+                    <Typography color="text.secondary">
+                      ${item.price}
+                    </Typography>
                   </Box>
 
                   {/* Quantity Controls */}
@@ -165,6 +208,7 @@ export default function Cart() {
             </Box>
 
             <Button
+              onClick={makePayment}
               variant="contained"
               size="large"
               color="primary"
