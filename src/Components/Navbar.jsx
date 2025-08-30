@@ -98,7 +98,7 @@ function Navbar() {
                 <Skeleton variant="text" width={100} height={30} />
                 <Skeleton variant="text" width={60} height={20} />
                 <Skeleton variant="text" width={60} height={20} />
-                <Skeleton variant="text" width={60} height={20} />
+                {/* <Skeleton variant="text" width={60} height={20} /> */}
               </Box>
 
               {/* Center Skeleton (Search bar) */}
@@ -131,7 +131,7 @@ function Navbar() {
                 >
                   Home
                 </NavLink>
-                <NavLink
+                {/* <NavLink
                   to="/productDetail"
                   style={({ isActive }) => ({
                     color: isActive ? "red" : "black",
@@ -141,8 +141,8 @@ function Navbar() {
                   underline="hover"
                 >
                   Shop
-                </NavLink>
-                <NavLink
+                </NavLink> */}
+                {/* <NavLink
                   to="/sale"
                   style={({ isActive }) => ({
                     color: isActive ? "red" : "black",
@@ -152,8 +152,8 @@ function Navbar() {
                   underline="hover"
                 >
                   On Sale
-                </NavLink>
-                <NavLink
+                </NavLink> */}
+                {/* <NavLink
                   to="/new"
                   style={({ isActive }) => ({
                     color: isActive ? "red" : "black",
@@ -163,7 +163,7 @@ function Navbar() {
                   underline="hover"
                 >
                   New Arrivals
-                </NavLink>
+                </NavLink> */}
                 <NavLink
                   to="/products/category"
                   style={({ isActive }) => ({
@@ -180,7 +180,7 @@ function Navbar() {
               {/* Center: Search Bar */}
               <Box sx={{ flex: 1, mx: 4, position: "relative" }}>
                 <TextField
-                  fullWidth
+                   fullWidth
                   size="small"
                   placeholder="Search products..."
                   variant="outlined"

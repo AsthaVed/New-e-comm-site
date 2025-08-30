@@ -49,7 +49,7 @@ export default function Cart() {
           variant="contained"
           size="small"
           component={RouterLink}
-          to="/categoryPage"
+          to="/products/category"
           sx={{ mt: 4, p: 2 }}
         >
           Continue Shopping

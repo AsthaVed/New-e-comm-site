@@ -20,3 +20,16 @@ export const store = configureStore({
 });
 
 export default store;
+
+// configureStore({ reducer: {...} }) used for store creation
+// middleware - Thunk included by default
+// reducers - createSlice generates actions + reducer automatically
+
+// 1️⃣ How Thunk is included in Redux Toolkit
+// configureStore automatically adds Redux Thunk middleware.
+// This means you can write async action creators (thunks) without manually configuring middleware.
+// 2️⃣ Writing Async Actions in Redux Toolkit
+// You can use createAsyncThunk, which is a Redux Toolkit helper that wraps async actions with Thunk
+// 3️⃣ Using the Async Action in a Component
+
+// C:\Program Files\MongoDB\Server\8.0\bin\
