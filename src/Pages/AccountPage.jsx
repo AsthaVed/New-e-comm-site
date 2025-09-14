@@ -100,13 +100,13 @@ export default function AccountPage() {
           </Box>
         ))}
 
-        <Divider sx={{ my: 2 }} />
+        {/* <Divider sx={{ my: 2 }} /> */}
 
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        {/* <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           {isDark ? <Brightness4Icon /> : <Brightness7Icon />}
           <Typography variant="body2">Dark Mode</Typography>
           <Switch checked={isDark} disabled />
-        </Box>
+        </Box> */}
 
         <Divider sx={{ my: 2 }} />
 
